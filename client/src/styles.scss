@@ -1,0 +1,133 @@
+// Custom Theming for Angular Material
+@import './custom-theme.scss';
+@import './style/_mixins.scss';
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+@import "~ag-grid-community/dist/styles/ag-theme-material.css";
+// Plus imports for other components in your app.
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.hover-directive {
+    transform: scale(1.05); // be careful because if too high, card touch aside menu 
+    transition: all 0.1s linear;
+    position: relative;
+}
+
+// Handle charts cards size depending on parameter "growth_factor" from the API. See SizeCard Directive 
+.card-grow-default {
+    @include card-grow('default')
+}
+
+.card-grow-zoom-1 {
+    @include card-grow('zoom-1')
+}
+
+.card-grow-zoom-2 {
+    @include card-grow('zoom-2')
+}
+
+.card-grow-zoom-3 {
+    @include card-grow('zoom-3')
+}
+
+//
+// Main Content +Aside Menu
+//
+.main-content {
+    height: 100%;
+    flex-basis: 100%;
+    padding: 3% 3% 3% 4%;
+}
+
+.main-content-aside {
+    height: 100%;
+    flex-basis: 50%;
+    padding: 3% 3% 3% 4%;
+}
+
+.aside-hidden {
+    display: none;
+}
+
+.aside-visible {
+    flex-basis: 50%;
+    height: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 1rem;
+    align-self: flex-start;
+}
+
+// Notifications snackbar
+.notif-success {
+    background-color: $primary !important;
+}
+
+.notif-wrong {
+    background-color: #ff4456 !important;
+}
+
+.notif-info {
+    background-color: $infos !important;
+}
+
+.notif-neutral {
+    background-color: $neutral !important;
+}
+
+
+/* style for modals, the rest exist in modals header style */
+
+.mat-dialog-container {
+    padding-top: 0 !important;
+    padding-right: -24px;
+    padding-left: -24px;
+}
+
+dialog-overview-example-dialog.ng-star-inserted>div {
+    margin-right: -24px;
+    margin-left: -24px;
+}
+
+.mat-dialog-actions {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+.mat-dialog-title {
+    margin-top: 10px !important;
+}
+
+
+/* change z-index when click in modals just see the modal */
+
+.header-fixed .app-header {
+    z-index: 920 !important;
+}
+
+.sidebar-fixed .sidebar {
+    z-index: 919 !important;
+}
+
+.pl-1 {
+    padding-left: 1%;
+}
+
+.pr-1 {
+    padding-right: 1%;
+}
+
+.mb-1 {
+    margin-bottom: 1%;
+}

@@ -1,0 +1,48 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+.card-title {
+    background-color: $primary;
+    color: #fff;
+    font-weight: 400;
+    padding-bottom: 1%;
+    padding-left: 4%;
+    padding-top: 2.5%;
+    @include flexbox;
+    justify-content: space-between;
+    text-transform: uppercase;
+    // border: 5px solid green;
+}
+
+.info-id {
+    align-self: flex-start;
+    // border: 5px solid red;
+}
+
+.title-actions {
+    @include flexbox;
+    @include justify-content(flex-end);
+    // border: 3px solid blue;
+}
+
+.redirect-children {
+    font-size: 0.8em;
+}
+
+a .redirect-children {
+    color: #fff;
+}
+
+.card-title-sections {
+    @include flexbox;
+    // border: 3px solid purple;
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color: white;
+}
+
+.linked a {
+    color: #fff;
+    font-size: 13px;
+    font-style: italic;
+}

@@ -1,0 +1,7 @@
+<div *ngIf="childs">
+  <span *ngFor="let navUrl of childs">
+      <a [routerLink]="[ navUrl.id, navUrl.childResource]">
+          <i class="fa fa-link" aria-hidden="true"></i> {{ navUrl.childResource | titlecase }}
+      </a>
+  </span>
+</div>

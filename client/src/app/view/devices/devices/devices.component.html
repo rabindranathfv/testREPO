@@ -1,0 +1,48 @@
+<section class="content-layout">
+
+    <ng-container *ngIf="dataSet; else elseTemplate">
+
+        <div id="mainContent" #mainContentRef class="main-content">
+            <app-header-title></app-header-title>
+            <section>
+                <button mat-raised-button color="primary" class="visualization" (click)="changeView()"><i class="fa fa-{{ viewAsTable ? 'address-card-o' : 'table' }}"></i></button>
+                <app-card-searcher *ngIf="!viewAsTable" (inputData)="onSearch($event)" [searchButton]="true"></app-card-searcher>
+                <div *ngIf="!viewAsTable; else showTable">
+                        <div class="cards-container">
+                            <div class="card-item" *ngFor="let data of dataSet | cardSearch:searchFields:searchInput; let i = index" id="data.id">
+                                <div class="mat-elevation-z8" hover hoverClass='hover-directive'>
+                                    <app-card-title [title]="data.name" [id]="data.id" [checkBox]="checkBoxCardTitle" [hasChild]="data.hasChild"></app-card-title>
+                                    <section>
+                                        <app-card-body [dataObject]='data' [datasCardBody]='datasCardBody'></app-card-body>
+                                    </section>
+                
+                                    <mat-divider></mat-divider>
+                                    <app-card-actions [resource]="resource" [id]="data.id" [dataObject]='data' [actionsBtn]="actionsBtn"></app-card-actions>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-template #showTable>
+                        <app-table-ag-grid
+                            [rowData]="dataSet"
+                            [columnDefs]="columns"
+                            [typeDisplay]="typeDisplayTable"
+                            [search]="search"
+                            >
+                        </app-table-ag-grid>
+                    </ng-template>
+                    <app-no-results-search *ngIf="(dataSet | cardSearch:searchFields:searchInput).length == 0 && !viewAsTable" [searchText]="searchInput"></app-no-results-search>
+            </section>
+        </div>
+    </ng-container>
+
+    <ng-template #elseTemplate>
+        No hay datos que mostrar.
+    </ng-template>
+
+
+    <div class="btn-actions">
+        <button mat-fab color="primary" position="right" matTooltip="Add New Customers" (click)="openModals('create')"><i class="fa fa-plus"></i></button>
+    </div>
+
+</section>

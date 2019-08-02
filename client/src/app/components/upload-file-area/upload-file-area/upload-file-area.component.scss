@@ -1,0 +1,44 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+
+.uploadfilecontainer {
+    background-image: url("../../../../assets/icons/Asset-44-8.png");
+    background-repeat: no-repeat;
+    background-size: 100px;
+    background-position: center;
+    height: 200px;
+    width: 80%;
+    margin: 20px auto;
+    border: 2px dashed $primary;
+    border-radius: 10px;
+}
+
+.uploadfilecontainer:hover {
+    cursor: pointer;
+    background-color: #9ecbec !important;
+    opacity: 0.8;
+}
+
+.files-list {
+    @include flexbox;
+    @include justify-content(space-between);
+    align-items: center;
+    width: 80%;
+    margin: 10px auto;
+    background: #ffffff;
+    border: 1px dashed;
+    border-radius: 12px;
+    padding: 5px;
+    color: $primary;
+}
+
+.files-list .delete-file {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    @include flexbox;
+}
+
+.files-list .delete-file img {
+    width: 30px;
+}

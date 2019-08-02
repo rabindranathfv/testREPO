@@ -1,0 +1,44 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+.filters-simple-container {
+    width: 100%;
+    @include flexbox;
+    @include justify-content(space-between);
+    padding: 10px;
+}
+
+.filters-zone {
+    @include flexbox;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 5px;
+    /* border: 1px solid blue; */
+}
+
+.filter-item {
+    @include flexbox;
+    flex-direction: column;
+    flex: 0 0 20%;
+    max-width: 200px;
+    margin: 5px;
+    /* border: 1px solid green; */
+}
+
+.label-field {
+    color: $primary;
+    font-weight: 500;
+    font-size: 19px;
+}
+
+.actions-btn-zone {
+    @include flexbox;
+    @include justify-content(center);
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-right: 3%;
+    /* border: 1px solid red; */
+}
+
+.actions-btn-item {
+    margin: 5px;
+}

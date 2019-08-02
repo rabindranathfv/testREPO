@@ -1,0 +1,14 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+
+.content-info-items {
+   @include flexbox;
+   @include justify-content(space-between);
+    flex-direction: column;
+    margin-left: 2%;
+    padding-right: 2%;
+}
+
+.label-body {
+    color: $label-card-body !important;
+}

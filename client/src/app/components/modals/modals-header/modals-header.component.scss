@@ -1,0 +1,23 @@
+@import 'src/style/_variables.scss';
+@import 'src/style/_mixins.scss';
+.text-left {
+    text-align: left;
+}
+
+.header-container {
+    background-color: $primary;
+    @include flexbox;
+    @include justify-content(flex-start);
+    /* for use full space of header with some padding get better feeel */
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    transform: translate(0, -24px);
+}
+
+.header-content {
+    color: white;
+    margin: auto;
+    margin-left: 3%;
+}

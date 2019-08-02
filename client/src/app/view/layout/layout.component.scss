@@ -1,0 +1,158 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+.sidebar-container {
+    height: 100%;
+}
+
+.sidebar-section {
+    width: 20%;
+    max-width: 180px;
+    display: flex;
+    @include flexbox;
+    flex-direction: column;
+    background-color: $primary;
+    // transition: width linear 3s;
+    // -webkit-transition: all 1s linear;
+    // -moz-transition: all 1s linear;
+    // -o-transition: all 1s linear;
+    // transition: all 1s linear;
+}
+
+.sidebar-section-minimize {
+    width: 20%;
+    max-width: 70px;
+    display: flex;
+    @include flexbox;
+    flex-direction: column;
+    overflow-x: hidden;
+    // -webkit-transition: all 0.2s linear;
+    // -moz-transition: all 0.2s linear;
+    // -o-transition: all 0.2s linear;
+    // transition: all 0.2s linear;
+    // transition: width linear 4s;
+}
+
+.sidebar-item {
+    @include flexbox;
+    @include justify-content(flex-start);
+    /* full color of sidebar-items */
+    color: $secondary;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    width: 100%;
+}
+
+.sidebar-item-minimize {
+    @include flexbox;
+    @include justify-content(center);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+.sidebar-item-container :hover {
+    background-color: $sidebar-item-hover;
+    color: $primary;
+}
+
+.sidebar-item-selected {
+    background-color: $sidebar-item-hover;
+}
+
+.sidebar-item-icon {
+    transform: translate(0, -2px)
+}
+
+.sidebar-item-icon-minimize {
+    transform: translate(-4px, 0)
+}
+
+.sidebar-item-text {
+    margin-left: 10px;
+}
+
+.sidebar-link {
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar-selected {
+    color: $primary;
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: $sidebar-item-minize;
+    @include flexbox;
+    @include justify-content(flex-end);
+}
+
+.sidebar-footer-minimize {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: $sidebar-item-minize;
+    @include flexbox;
+    @include justify-content(center);
+}
+
+.close-sidebar-btn {
+    border: none;
+    padding: 12px 16px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background-color: $sidebar-item-minize;
+}
+
+.footer-btn-minimize {
+    border: none;
+    padding: 12px 12px;
+    margin-bottom: 15px;
+    background-color: $sidebar-item-minize;
+}
+
+.open-sidebar-container {
+    position: fixed;
+    bottom: 0px;
+    background-color: $sidebar-item-minize;
+}
+
+.open-sidebard-content {
+    background-color: $sidebar-item-minize;
+}
+
+.open-sidebar-btn {
+    border: none;
+    padding: 12px 16px;
+    /* margin-right: 15px; */
+    margin-bottom: 15px;
+    background-color: $sidebar-item-minize;
+}
+
+.nav-header-img-container {
+    @include flexbox;
+    @include justify-content(center);
+    background-color: $secondary;
+    /* background-color: $bg-header-img; */
+    height: 58px;
+    padding-top: 12px;
+}
+
+.nav-header-img {
+    width: auto;
+    height: 38px;
+}
+
+.nav-header-img-mini {
+    width: 25px;
+    height: 25px;
+}
+
+.router-outlet-content {
+    height: 100%;
+    width: 100%;
+}

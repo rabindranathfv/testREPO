@@ -1,0 +1,110 @@
+{
+    "sidebar": {
+        "navHome": "Home",
+        "navCust": "Usuarios",
+        "navPlants": "Plantas",
+        "navAssets": "Assets - hubs",
+        "navDevices": "Dispositivos",
+        "navRuleChain": "Rule Chain",
+        "navEntityView": "Entity View",
+        "navWidgetLibrary": "Widget Library",
+        "navDashboardKpi": "Dashboard Kpi",
+        "navLogs": "Logs"
+    },
+    "accountMenu": {
+        "nav3": "Cerrar",
+        "headerLabel": "Forcast Front Base",
+        "language": "Idioma",
+        "help": "Ayuda",
+        "contact": "Contacto",
+        "signOut": "Desconectar"
+    },
+    "base": {
+        "translate": {
+            "title": "traducción",
+            "lang": "Español",
+            "mockText": "El avestruz2​ (Struthio camelus) es una especie de ave estrutioniforme de la familia Struthionidae.3​ Es un ave grande que no vuela, sino que es corredora. Se halla en África, y en tiempos pasados también habitó en Oriente Medio. Es la más grande y la más pesada de las aves que aún existen; puede alcanzar los tres metros de altura y pesar unos 180 kg"
+        }
+    },
+
+    "header": {
+        "title": "",
+        "text": ""
+    },
+
+    "layout": {
+        "navbar": {
+            "item1": "",
+            "item2": "",
+            "item3": ""
+        }
+    },
+
+    "loginModule": {
+        "input": {
+            "emailPlaceholder": "Email",
+            "pswPlaceholder": "Contraseña"
+        },
+        "labels": {
+            "userLabel": "Usuario",
+            "paswdLabel": "Contraseña"
+        },
+        "btn": {
+            "btnValid": "Ingresar",
+            "action": "Ingresar"
+        },
+        "nav": {
+            "pswForgot": "¿Has olvidado tu contraseña?",
+            "help": " Consigue Ayuda"
+        },
+        "errorText": {
+            "errorMs": "Usuario o contraseña incorrecto."
+        },
+        "messageNotifiLogin": {
+            "loginSuccess": "Usuario correcto",
+            "loginFailure": "Usuario incorrecto, verifique sus credenciales"
+        }
+    },
+
+    "resetPswModule": {
+        "cardMailInput": {
+            "stepperTitle": "Rellene su correo electrónico",
+            "title": "¿Olvidaste Tu Contraseña ?",
+            "instructions": "Ingrese el correo electrónico que está utilizando para su cuenta a continuación y le enviaremos un enlace para restablecer la contraseña.",
+            "mailPlacehold": "Mail address",
+            "btnResetLink": "Solicitar Restablecer Enlace"
+        },
+        "cardCheckMail": {
+            "stepperTitle": "Revisa correo",
+            "title": "Revisa Tu Correo",
+            "instructions": "Le hemos enviado un correo electrónico con un enlace de restablecimiento a la dirección que nos proporcionó, verifique su bandeja de entrada para continuar y restablecer su contraseña.",
+            "btnResendMail": "Enviar nuevamente correo",
+            "btnNavToLogin": "Ir a Login"
+        }
+    },
+
+
+    "newPswModule": {
+        "title": "Restablecer Contraseña",
+        "newPswPlaceholder": "Nueva contraseña",
+        "btnConfirm": "Validar"
+    },
+
+    "modal": {
+
+        "modalHeader": {
+            "create": "Crear ",
+            "show": "Mostrar ",
+            "delete": "Borrar ",
+            "edit": "Editar",
+            "associate": "Asociado ",
+            "dissociate": "Disociado"
+        },
+        "modalFooter": {
+
+        },
+        "modalbody": {
+
+        }
+    }
+}

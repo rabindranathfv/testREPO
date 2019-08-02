@@ -1,0 +1,17 @@
+<!-- Customers Form - Details -->
+<div>
+    <form class="full-width form-container" [id]="objDetail.id">
+        <!-- <div class="card-body">
+        <button mat-raised-button class="btn-primary btn-outline-primary m-1" (click)="openModals()"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create User</button>
+        <button mat-raised-button class="btn-primary btn-outline-primary m-1"><i class="fa fa-pencil"  aria-hidden="true"></i> Edit User</button>
+        <button mat-raised-button class="btn-primary btn-outline-primary m-1" (click)="openModalsByOperationAside(id, 1)"><i class="fa fa-trash" aria-hidden="true"></i> Delete User</button>
+    </div> -->
+
+        <div class="form">
+            <!-- Check (submit)=submit($event) error in ng build -->
+            <!-- <app-dynamic-form  #dynForm [typeRequest]="objDetail.typeData" [fields]="regConfig" (submit)="submit($event)"> -->
+            <app-dynamic-form #dynForm [resource]="objDetail.typeData" [fields]="regConfig">
+            </app-dynamic-form>
+        </div>
+    </form>
+</div>

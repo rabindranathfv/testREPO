@@ -1,0 +1,42 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+
+
+.empty-chart-content {
+    @include flexbox;
+    @include justify-content(center);
+    padding-top: 4%;
+}
+
+.empty-chart-content-items {
+    width: 220px;
+}
+
+
+.cards-container {
+
+    @include flexbox;
+    flex-direction: row;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    padding-right: 1%;
+    padding-left: 1%;
+
+}
+
+.chart-card-item {
+
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: 1.5%;
+    border: 1px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    z-index: 100;
+}
+
+.full-size{
+    height: 100%;
+    width: 100%;
+}

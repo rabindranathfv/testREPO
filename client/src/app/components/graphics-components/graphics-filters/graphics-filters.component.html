@@ -1,0 +1,171 @@
+<div>
+    <div class="filters-container">
+
+        <div class="filters-select-container">
+
+            <div class="selects-row-container">
+
+                <div class="selects-row-item">
+                    <label class="w-100 label-select">{{filtersFieldlabel}}</label>
+                    <mat-form-field class="select-custom" appearance="outline">
+                        <mat-select [(ngModel)]="filterSelect" name="filters list" (selectionChange)="handleChange()">
+                            <mat-option selected="">
+                            </mat-option>
+                            <mat-option *ngFor="let filter of filtersArray;let i= index " [value]="{name:filter.name,index:i,options_url:filter.options_url}" selected="" [disabled]="filter.disable">
+                                {{ filter.label}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+
+                <div class="selects-row-item ml-4">
+                    <label class="w-100 label-select">{{valueFieldLabel}}</label>
+                    <mat-form-field class="select-custom" appearance="outline">
+                        <mat-select [(ngModel)]="valueSelect" name="values filter selected" (selectionChange)="changeValue()">
+                            <mat-option selected="">
+                            </mat-option>
+                            <mat-option *ngFor="let valueFilter of options; let i = index" [value]="valueFilter" selected="">
+                                {{ valueFilter }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+
+            <div *ngIf="dateFilter" class="selects-row-container">
+
+                <div class="selects-row-item" >
+                    <mat-form-field class="select-custom-date" appearance="outline" matTooltip="Inicio de fecha dd/mm/aaaa" [matTooltipClass]="'mat-tooltip'" (click)="picker.open()">
+                        <input  readonly [(ngModel)]="dateStart"  matInput [matDatepicker]="picker" placeholder="Desde"(ngModelChange)="dateStartControl()"> 
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="selects-row-item ml-4" >
+                    <mat-form-field class="select-custom-date" appearance="outline" matTooltip="Fecha fin dd/mm/aaaa" (click)="picker2.open()">
+                        <input  readonly [(ngModel)]="dateEnd" matInput [matDatepicker]="picker2" placeholder="Hasta"(ngModelChange)="dateEndControl()">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>    
+                </div>
+            </div>
+
+            <div class="date-error">
+            <mat-error *ngIf="errorDates">
+                {{messageError}}
+            </mat-error>
+            </div>
+         
+
+        </div>
+
+
+        <ng-container *ngIf="dateFilter; else noDate">
+            <div class="buttons-action">
+                <div class="button-add-container">
+                    <button mat-icon-button class="button-add" (click)="addFilter(filterSelect,valueSelect)">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="button-reset-container">
+                    <button mat-stroked-button class="button-add" (click)="resetDates()">
+                        Limpiar
+                    </button>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-template #noDate>
+
+            <div class="buttons-action">
+                <div class="button-add-container2">
+                    <button mat-icon-button class="button-add" (click)="addFilter(filterSelect,valueSelect)">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+        </ng-template>
+
+        <div class="chips-filter-container">
+            <mat-chip-list>
+
+                <ng-container *ngFor="let filter of  filtersEnabled;  let i = index">
+
+                    <mat-chip *ngIf="filter.name=='cluster'" class="clusters-chip" [removable]="removable" (removed)="removeFilter(i)">
+                        cluster {{filter.valueFilter}}
+                        <mat-icon [ngStyle]="{'color':'white'}" matChipRemove *ngIf="removable">
+                            cancel
+                        </mat-icon>
+                    </mat-chip>
+
+
+                    <mat-chip class="communas-chip" *ngIf="filter.name=='commune'" [removable]="removable" (removed)="removeFilter(i)">
+                        com. {{filter.valueFilter}}
+                        <mat-icon [ngStyle]="{'color':'white'}" matChipRemove *ngIf="removable">
+                            cancel
+                        </mat-icon>
+                    </mat-chip>
+
+                    <mat-chip class="zonas-chip" *ngIf="filter.name=='censal_zone'" [removable]="removable" (removed)="removeFilter(i)">
+                        zona {{filter.valueFilter}}
+                        <mat-icon [ngStyle]="{'color':'white'}" matChipRemove *ngIf="removable">
+                            cancel
+                        </mat-icon>
+                    </mat-chip>
+
+                    <mat-chip class="gse-chip" *ngIf="filter.name=='gse'" [removable]="removable" (removed)="removeFilter(i)">
+                        gse {{filter.valueFilter}}
+                        <mat-icon [ngStyle]="{'color':'white'}" matChipRemove *ngIf="removable">
+                            cancel
+                        </mat-icon>
+                    </mat-chip>
+
+                    <mat-chip class="frequency-chip" *ngIf="filter.name=='frequency'" [removable]="removable" (removed)="removeFilter(i)">
+                        frec {{filter.valueFilter}}
+                        <!-- <span>
+                            <i class="fa fa-times-circle" [ngStyle]="{'color':'white'}" *ngIf="removable" aria-hidden="true"></i>
+                        </span> -->
+                        <mat-icon [ngStyle]="{'color':'white'}" matChipRemove *ngIf="removable">
+                            cancel
+                        </mat-icon>
+                    </mat-chip>
+
+                </ng-container>
+
+            </mat-chip-list>
+        </div>
+
+        <div class="header-btn-container m-2">
+            <div class="button-header">
+                <div class="button-wrapper">
+                    <button mat-raised-button color="primary" matTooltip="consulte y espere por sus resultados" [disabled]="activeButtons" (click)="getChartsByParam()">
+                                <div 
+                                    class="button-text">
+                                    Consultar
+                                </div>
+                        </button>
+                </div>
+            </div>
+
+            <div class="button-header">
+                <button mat-raised-button color="primary"> 
+                    <div class="button-text">Recalcular</div>
+                </button>
+            </div>
+
+            <div class="button-header">
+                <button mat-raised-button color="primary">
+                    <div class="button-text">Actualizar</div>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+ 
+</div>

@@ -1,0 +1,23 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+
+td{
+    font-size: 0.8em;
+  }
+  
+  table.center-table {
+    width: 100%;
+    margin: auto;
+    align-content: center;
+  }
+  
+  th{
+    background-color: $outline;
+    height: 2em;
+    font-size: 0.8em;
+    font-weight: bolder;
+  }
+
+  .center{
+    text-align: center;
+  }

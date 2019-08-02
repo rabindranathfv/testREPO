@@ -1,0 +1,23 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+
+.m-1 {
+    margin: 2%;
+}
+
+.title-content {
+    @include justify-content(space-between);
+}
+.headerContainer {
+    background-color: $primary;
+    display:flex;
+    justify-content: flex-start;
+}
+.headerContent {
+    color:white;
+    margin:auto;
+    margin-left:3%;
+}
+.details-content {
+   overflow: scroll ;
+}

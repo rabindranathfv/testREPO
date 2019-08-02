@@ -1,0 +1,80 @@
+<header class="header-container mat-elevation-z1" style="top: 0px">
+    <div [ngClass]="{'header-content': currentUrl !== '/login', 
+    'header-content-login':currentUrl == '/login' }">
+        <ng-container *ngIf="sidebarVisibility;">
+
+            <button mat-icon-button [matMenuTriggerFor]="navMenu" class="open-menu-icon">
+                 <i class="fa fa-list "></i>
+            </button>
+
+        </ng-container>
+
+
+        <ng-container *ngIf="NavHeader.imgPath;">
+            <section [ngClass]="{'nav-header-img-container mat-elevation-z2': currentUrl !== '/login', 
+                'login-header-img':currentUrl == '/login' }">
+                <img class="nav-header-img" [src]="NavHeader.imgPath">
+            </section>
+        </ng-container>
+
+        <button mat-icon-button [matMenuTriggerFor]="accountMenu" class="account-menu-btn">
+                 <i class="fa fa-user"></i>
+         </button>
+    </div>
+
+    <mat-menu #navMenu="matMenu">
+
+        <ng-container *ngFor="let nav of NavContent;">
+            <button mat-menu-item>
+              <section>
+                  <i *ngIf='nav.icon' class="{{ nav.icon }}"></i> 
+                  <span > {{nav.name}}</span>
+              </section>
+            </button>
+        </ng-container>
+
+    </mat-menu>
+
+    <mat-menu #navMenu="matMenu">
+
+        <ng-container *ngFor="let nav of NavContent;">
+            <button mat-menu-item>
+                <section>
+                    <i *ngIf='nav.icon' class="{{ nav.icon }}"></i> 
+                    <span > {{ nav.keyRef | translate}}</span>
+                </section>
+             </button>
+        </ng-container>
+
+    </mat-menu>
+
+    <mat-menu #accountMenu="matMenu">
+
+        <ng-container *ngFor="let nav of NavAccountMenu;">
+            <button *ngIf="nav.type =='btn' " mat-menu-item>
+              <section>
+                  <i *ngIf='nav.icon' class="{{ nav.icon }} "></i> 
+                  <span> {{ nav.keyRef | translate}}</span>
+              </section>
+           </button>
+            <button *ngIf="nav.type =='lang-menu' " mat-menu-item [matMenuTriggerFor]="lang">
+              <section>
+                  <i *ngIf='nav.icon' class="{{ nav.icon }} "></i> 
+                  <span> {{ nav.keyRef | translate}}</span>
+              </section>
+           </button>
+        </ng-container>
+    </mat-menu>
+
+    <mat-menu #lang="matMenu">
+        <ng-container *ngFor="let lang of Languages;">
+            <button mat-menu-item (click)="changeLanguage(lang.code)">
+            <section>
+                <span [ngClass]="[lang.icon]"></span>
+                <span> {{ lang.name }}</span>
+            </section>
+        </button>
+        </ng-container>
+    </mat-menu>
+
+</header>

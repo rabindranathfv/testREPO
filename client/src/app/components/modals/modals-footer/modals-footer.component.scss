@@ -1,0 +1,8 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+
+.footer-container {
+    @include flexbox;
+    @include justify-content(flex-end);
+    width:100%;    
+}

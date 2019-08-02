@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>View Datasheet</h1>
+<mat-dialog-content>
+  <pre class="mb-1 mt-1 json-data">{{ data | json }}</pre>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button color="primary" (click)="close()" cdkFocusInitial>Cerrar</button>
+</mat-dialog-actions>

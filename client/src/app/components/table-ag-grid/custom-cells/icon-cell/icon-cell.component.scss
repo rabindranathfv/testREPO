@@ -1,0 +1,10 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+
+.icon-cell-container {
+    @include flexbox;
+    @include justify-content(space-around);
+    flex-direction: row;
+    align-items:center; 
+
+}

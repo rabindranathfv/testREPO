@@ -1,0 +1,13 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+
+
+.card-actions-btns {
+
+    @include flexbox;
+    @include justify-content(flex-end);
+}
+
+button i {
+    font-size: 11px;
+}

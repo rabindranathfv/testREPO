@@ -1,0 +1,45 @@
+<div *ngIf="field">
+    <div  class="show-container">
+        <ng-container *ngFor="let f of field">
+
+        <div class="show-items-container">
+        
+            <div class="label-container" >
+                <label class="m-1 label">
+                    {{ f.label }} 
+                </label>
+            </div>
+
+            <ng-container   *ngIf="f.value; else EmptyValue">
+
+                    <ng-container *ngIf="f.name==='datasheet'">
+                            <div class="show-items" >
+                                <button mat-raised-button (click)="viewDataSheet(f.value)"><i class="fa fa-eye"></i></button>
+                            </div>
+                        </ng-container>
+
+                <ng-container *ngIf='f.name==="created_at" || f.name=== "updated_at"; else NormalValue'>
+                    <div class="show-items" >
+                    <label class="label-info m-1" name="f.name">{{ f.value | date:'shortDate' }}</label>
+                    </div>
+                </ng-container>
+
+                <ng-template #NormalValue>
+                    <div class="show-items">
+                        <label class="label-info m-1" [hidden]="f.type==='json'"name="f.name">{{ f.value }}</label>
+                    </div>
+                </ng-template>
+
+            </ng-container>
+
+                <ng-template  #EmptyValue>
+                <div class="empty-item" >
+                <i class="fa fa-ellipsis-h  empty-icon"></i>
+                </div>
+                </ng-template>
+
+        </div>
+
+        </ng-container>
+    </div>
+    </div>

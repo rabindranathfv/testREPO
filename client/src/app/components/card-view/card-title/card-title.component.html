@@ -1,0 +1,46 @@
+<div>
+    <ng-container *ngIf="title;else emptyContainer">
+        <div class="card-title">
+            <ng-container *ngIf="checkBox;else noCheckBox">
+                <mat-checkbox>
+                    <div class="info-id" *ngIf="id">{{id}}.{{ title }}</div>
+                </mat-checkbox>
+                <div *ngIf="hasChild" class="card-title-sections">
+                    <div class="pl-1 pr-1 linked" *ngFor="let navUrl of hasChild">
+                        <a [routerLink]="[ navUrl.id , navUrl.childResource]">
+                            <i class="fa fa-link redirect-children" aria-hidden="true"></i> {{ navUrl.childResource | titlecase }}
+                        </a>
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-template #noCheckBox>
+                <div class="card-title-sections">
+                    <div class="info-id" *ngIf="id">{{id}}.</div>{{ title }}
+                    <div *ngIf="hasChild" class="card-title-sections">
+                        <div class="pl-1 pr-1 linked" *ngFor="let navUrl of hasChild">
+                            <a [routerLink]="[ navUrl.id , navUrl.childResource]">
+                                <i class="fa fa-link redirect-children" aria-hidden="true"></i> {{ navUrl.childResource | titlecase }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+
+    </ng-container>
+
+    <ng-template #emptyContainer>
+        <div class="card-title">
+            <div class="info-id">Id {{ id }}</div>
+
+            <div *ngIf="hasChild" class="card-title-sections">
+                <div class="pl-1 pr-1 linked" *ngFor="let navUrl of hasChild">
+                    <a [routerLink]="[ navUrl.id , navUrl.childResource]">
+                        <i class="fa fa-link redirect-children" aria-hidden="true"></i> {{ navUrl.childResource | titlecase }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

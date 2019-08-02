@@ -1,0 +1,14 @@
+<div >
+    <ag-grid-angular 
+        #agGrid 
+        domLayout='autoHeight'
+        class="ag-grid-table-s ag-theme-material" 
+        [rowData]="rowData" 
+        [columnDefs]="columnDefs" 
+        [pagination]="true" 
+        [paginationPageSize]="paginationPageSize" 
+        (gridReady)="onGridReady($event)"
+        [frameworkComponents]="frameworkComponents"
+    >
+    </ag-grid-angular>
+</div>

@@ -1,0 +1,49 @@
+<!-- chartJs using inside card -->
+<ng-container *ngIf="typeDisplay=='card'">
+
+    <div *ngIf='datasCharts.data.colors[0] === {} ;else chartSinColor' class="chart-card-size">
+        <canvas style="height:80% !important;" baseChart [datasets]="datasCharts.data.datasets" [labels]="datasCharts.labels" [options]="datasCharts.data.options" [chartType]="datasCharts.type">
+          </canvas>
+    </div>
+
+    <ng-template #chartSinColor>
+        <div class="chart-card-size">
+            <canvas style="height:80% !important;" baseChart [datasets]="datasCharts.data.datasets" [labels]="datasCharts.labels" [options]="datasCharts.data.options" [chartType]="datasCharts.type" [colors]="datasCharts.data.colors">
+          </canvas>
+        </div>
+    </ng-template>
+
+</ng-container>
+
+<!-- chart without cards -->
+<ng-container *ngIf="typeDisplay=='normal'">
+
+    <div *ngIf='datasCharts.data.colors[0] === {} ;else chartSinColor' class=" chart-size ">
+        <canvas baseChart [datasets]="datasCharts.data.datasets " baseChart [labels]="datasCharts.labels " [options]="datasCharts.data.options " [chartType]="datasCharts.type ">
+          </canvas>
+    </div>
+
+    <ng-template #chartSinColor>
+        <div class="chart-size ">
+            <canvas baseChart [datasets]="datasCharts.data.datasets " baseChart [labels]="datasCharts.labels " [options]="datasCharts.data.options " [chartType]="datasCharts.type " [colors]="datasCharts.data.colors ">
+          </canvas>
+        </div>
+    </ng-template>
+
+</ng-container>
+
+<!-- chart for ag grid table -->
+<ng-container *ngIf="typeDisplay=='chartTable'">
+    <div *ngIf='datasCharts.data.colors[0]["backgroundColor"].length > 0 ;else chartSinColor' class="chart-table-size" >
+        <canvas style="height:22% !important; width: 40%;" baseChart [datasets]="datasCharts.data.datasets" [labels]="datasCharts.labels" [options]="datasCharts.data.options" [chartType]="datasCharts.type">
+        </canvas>
+    </div>
+
+    <ng-template #chartSinColor>
+        <div class="chart-table-size">
+            <canvas style="height:22%!important; width: 40%;" baseChart [datasets]="datasCharts.data.datasets" [labels]="datasCharts.labels" [options]="datasCharts.data.options" [chartType]="datasCharts.type" [colors]="datasCharts.data.colors">
+          </canvas>
+        </div>
+    </ng-template>
+
+</ng-container>

@@ -1,0 +1,7 @@
+<div class="form-search">
+  <mat-form-field>
+    <input matInput *ngIf="searchButton == false" [(ngModel)]="searchInput" (keyup)="sendData()" placeholder="Search" />
+    <input matInput *ngIf="searchButton" [(ngModel)]="searchInput" (change)="sendData()" placeholder="Search" />
+  </mat-form-field>
+  <button *ngIf="searchButton" mat-raised-button class="btn-search" (click)="sendData()" color="primary">Buscar</button>
+</div>

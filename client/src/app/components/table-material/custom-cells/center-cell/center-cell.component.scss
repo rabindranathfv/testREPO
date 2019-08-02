@@ -1,0 +1,11 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+.cell-container {
+    @include flexbox;
+    @include justify-content(center);
+    align-items: center;
+}
+
+.cell-item {
+    margin: 0 4px;
+}

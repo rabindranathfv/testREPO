@@ -1,0 +1,7 @@
+<section class="card-actions-btns">
+    <ng-container *ngFor="let btn of actionsBtn">
+        <button [matTooltip]="btn.toolTip" aria-label="" mat-flat-button (click)="openModalsByOperation(dataObject.id, dataObject.name ? dataObject.name : dataObject.serie, btn.typeOperation)">
+            <i [ngClass]="[btn.icon]" aria-hidden="true"></i>
+        </button>
+    </ng-container>
+</section>

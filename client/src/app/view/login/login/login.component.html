@@ -1,0 +1,55 @@
+<div class="login-container ">
+    <div class="Aligner-item">
+
+        <mat-card class="login-card-container mat-elevation-z8">
+
+            <div class="login-content">
+                <div class="login-title-label">
+                    {{loginTitleLabel | uppercase}}
+                </div>
+                <form [formGroup]="loginForm" (submit)="loginEasy()">
+                    <label class="label-field">{{ 'loginModule.labels.userLabel' | translate }}</label>
+                    <div>
+                        <mat-form-field class="input-field" appearance="outline">
+                            <input placeholder="solartracker@forcast.cl" matInput type="text" formControlName="email" name="code">
+                        </mat-form-field>
+                    </div>
+
+                    <label class="label-field">{{ 'loginModule.labels.paswdLabel' | translate }}</label>
+                    <div>
+                        <mat-form-field class="input-field" appearance="outline">
+                            <input placeholder="{{ 'loginModule.input.pswPlaceholder' | translate }}" matInput [type]="hide ? 'password' : 'text'" formControlName="password" name="password">
+                            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </mat-form-field>
+                        <mat-card-actions>
+                            <div class="alert alert-danger" role="alert" *ngIf="errorText.visible">
+                                {{ 'loginModule.errorText.errorMsg' | translate }}
+                            </div>
+                        </mat-card-actions>
+                    </div>
+
+
+
+                    <!-- <pre>{{ loginForm.value | json }}</pre> -->
+
+                    <div class="button-login-container">
+                        <button mat-flat-button class="button-login" [disabled]="wait" type="submit" (click)="loginEasy()">
+                                                            <i class="fa fa-spin fa-circle-o-notch" *ngIf="wait"></i>
+                                                            {{ 'loginModule.btn.action' | translate}}
+                                                        </button>
+                    </div>
+                </form>
+
+                <!-- <div class="login-redirect m-3">
+                    <a routerLinkActive="active" [routerLink]="['/reset']">
+                        <p class="lead"><i class="fa fa-question-circle " aria-hidden="true "></i> {{ 'loginModule.nav.pswForgot' | translate }}</p>
+                    </a>
+                    <a href="">
+                        <p class="lead"><i class="fa fa-info-circle " aria-hidden="true "></i> {{ 'loginModule.nav.help' | translate }}</p>
+                    </a>
+                </div> -->
+            </div>
+
+        </mat-card>
+    </div>
+</div>

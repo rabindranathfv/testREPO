@@ -1,0 +1,102 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+
+.login-container {
+
+    @include flexbox;
+    @include justify-content(center);
+    align-items: center;
+    height: 100%; 
+    background-image: url("../../../../assets/img/login-bg.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.Aligner-item {
+   width: 100%;
+   @include flexbox;
+   @include justify-content(center);
+  }
+
+.login-card-container {
+
+    width:50%;
+    max-width:700px;
+    min-height: 500px;
+    padding: 0 50px
+}     
+
+
+@media (max-width: 959px) {
+
+.login-card-container {
+    padding: 0 13px;
+} 
+
+}
+  
+
+.login-logo {
+    width:80%;
+}
+
+
+.logo-item {
+    /* margin: auto; */
+    flex-grow: 1;
+}
+
+.login-title-label {
+
+
+    padding:4% 0;
+    font-size:150%;
+    height:20%;
+    max-height: 80px;
+    font-weight: 700;
+    color: $text;
+    
+}
+
+
+.m-3 {
+
+    margin-top: 3vh;
+}
+
+.login-redirect {
+    @include flexbox;
+    @include justify-content(space-between);
+}
+ 
+.login-content {
+
+    @include flexbox;
+    @include justify-content(center);
+    flex-direction:column;
+}
+
+.label-field {
+
+    font-weight: 500
+
+}
+
+.input-field{
+    width: 100%;
+}
+
+.button-login{
+
+    width:35%;
+    max-width: 200px;
+    min-width: 85px;;
+    background-color: $primary; 
+    font-weight: 500;
+    color: #ffff;
+    margin-bottom: 3%;
+    border-radius : 20px;
+
+}
+

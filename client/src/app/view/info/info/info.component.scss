@@ -1,0 +1,84 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+// Handle display with Aside
+.content-layout {
+    @include flexbox;
+}
+
+.cards-container {
+    @include flexbox;
+    flex-direction: row;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    padding-right: 1%;
+    padding-left: 1%;
+}
+
+.info-card {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px;
+}
+
+
+.info-card .data {
+    padding: 20px;
+}
+
+.info-card .data > h1 {
+    font-size: 22px;
+    text-transform: uppercase;
+    color: $primary;
+}
+
+.info-card .data .attributes {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
+}
+.info-card .data .attributes .attribute h1 {
+	font-size: 16px;
+	text-transform: uppercase;
+}
+.info-card .data .attributes .attribute p {
+    font-size: 14px;
+    font-style: italic;
+    color: grey;
+}
+
+.table-resource {
+    width: 100%;
+    height: auto;
+    padding: 50px;
+}
+
+.table-resource p {
+    font-size: 22px;
+}
+
+.actions-info {
+    width: 100%;
+    height: auto;
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media (max-width: 650px) {
+    .info-card {
+        grid-template-columns: none;
+        grid-template-rows: 1fr 3fr;
+    }
+    .cards-container,
+    .actions-info,
+    .table-resource {
+        padding: 0;
+    }
+}
+
+.right {
+    float: right;
+}

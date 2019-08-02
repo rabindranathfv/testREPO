@@ -1,0 +1,23 @@
+<section class="overflow-y absolute-position"
+
+[ngStyle]="position"
+style="overflow-x: hidden;">
+  <mat-toolbar [color]="color"
+  *ngIf="title"
+  style="position: sticky; width: 100%; top: 0; z-index: 10;"
+  class="mat-elevation-z6">
+
+    <mat-toolbar-row>
+      <span> {{title}} </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <!-- <mat-list></mat-list>-->
+  <mat-list *ngIf="data">
+
+    <mat-list-item *ngFor="let item of data; let index = index">
+      <ng-content select="[index]"></ng-content>
+      <p matLine> {{item.text}} {{item.date | date: 'dd-MM-yyyy HH:mm'}} </p>
+      <p matLine class="text-muted">{{item.detalle}}</p>
+    </mat-list-item>
+  </mat-list>
+</section>

@@ -1,0 +1,24 @@
+<!-- cdkDropList
+(cdkDropListDropped)="drop($event)" -->
+<mat-grid-list 
+style="height: calc(100vh - 15vh);"
+[gutterSize]="gutterSize"
+[cols]="cols"
+[rowHeight]="rowHeight">
+  <!-- cdkDrag -->
+  <mat-grid-tile
+  [ngClass]="[elevation(tile.elevation)]"
+  [colspan]="tile.cols"
+  [rowspan]="tile.rows"
+  [style.backgroundColor]="tile.color"
+  *ngFor="let tile of tiles">
+    <app-drawer
+      [height]="tile.height"
+      [width]="tile.width"
+      [text]="tile.text"
+      [component]="tile.component"
+      [params]="tile.params"
+    >
+    </app-drawer>
+  </mat-grid-tile>
+</mat-grid-list>

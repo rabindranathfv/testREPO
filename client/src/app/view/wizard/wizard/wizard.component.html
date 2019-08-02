@@ -1,0 +1,14 @@
+<section class="content-layout">
+
+    <div id="mainContent" #mainContentRef class="main-content">
+        <app-header-title></app-header-title>
+
+        <div>
+            <!--  -->
+            <app-dynamic-form #dynForm [externalSubscriber]="Wizardform" [resource]="resource" [fields]="regConfig">
+            </app-dynamic-form>
+        </div>
+
+    </div>
+
+</section>

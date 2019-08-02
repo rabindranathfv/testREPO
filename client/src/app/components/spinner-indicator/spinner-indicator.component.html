@@ -1,0 +1,28 @@
+<div class="indicator" *ngIf="type =='power'">
+  <mat-progress-spinner
+      class="spinner-1"
+      [mode]="'determinate'"
+      [value]="powerValue"
+      [diameter]="150">
+  </mat-progress-spinner>
+  <div class="indicator-text">{{powerValue}}% <br> <h5>Potencia</h5></div>                                     
+  <img class="indicator-image" src="../../../../assets/icons/Asset 47-8.png" alt="">
+</div>
+
+<div class="indicator" *ngIf="type =='stateSystem'">
+  <div class="indicator-text">{{stateValues[0]}} kW <br> <h5>{{stateValues[1]}} W/m &nbsp;&nbsp; {{stateValues[2]}} kWh</h5></div>
+  <img class="indicator-image" src="../../../../assets/icons/Asset 47-8.png" alt="">
+</div>
+
+<div class="center-align" *ngIf="type=='custom'">
+  <div class="indicator left-separator">
+    <mat-progress-spinner
+        class="spinner-2"
+        [mode]="'determinate'"
+        [value]="powerValue"
+        [diameter]="100">
+    </mat-progress-spinner>
+    <div class="indicator-text-custom">{{powerValue}}%</div>       
+  </div>
+  <span class="spinner-name">{{indicatorName}}</span>
+</div>

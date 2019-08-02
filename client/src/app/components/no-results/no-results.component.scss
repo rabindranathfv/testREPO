@@ -1,0 +1,35 @@
+.no-results-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.no-results-text {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.no-results-font {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.flex-img {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+
+.flex-img-itms {
+    align-self: center;
+}
+
+.img-no-founds {
+    margin-top: 15%;
+    width: 150px;
+    height: 150px;
+}

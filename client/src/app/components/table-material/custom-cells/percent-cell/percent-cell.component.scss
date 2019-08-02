@@ -1,0 +1,31 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+
+.cell-container{
+
+    height: 100%;
+    width:100%;
+}
+.progress-container {
+
+    height:10px;
+    width: 100%;
+    background :#ddd;    
+}
+
+.progress-content {
+
+    height:10px;
+    background :$selection;
+
+}
+
+.percent-label {
+
+    width:100%;
+    font-size:9px;
+    font-weight: 500;
+    margin-left: 25px;
+
+
+}

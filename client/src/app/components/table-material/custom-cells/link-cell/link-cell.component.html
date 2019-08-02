@@ -1,0 +1,15 @@
+<ng-container *ngIf='row.id ;else noLink'>
+    <a [routerLink]="[row.id, 'detalles']" class="label-download">
+        <button mat-flat-button color="primary">
+                <div >
+                    Detalle
+                </div> 
+            </button>
+    </a>
+</ng-container>
+
+<ng-template #noLink>
+
+    {{noLinkLabel}}
+
+</ng-template>

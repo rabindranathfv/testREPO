@@ -1,0 +1,44 @@
+<!--
+    typeOperations
+
+    1 delete
+    2 edit
+    3 show details
+    4 AssociatePlantToCustomer
+ -->
+<!-- delete -->
+<ng-container *ngIf="typeOperation === 'delete'">
+    <mat-dialog-actions align="end">
+        <button mat-raised-button color="primary" class="btn" [id]="dataModel.id" (click)="delete(dataModel.id)" [mat-dialog-close]="true">Yes</button>
+        <button mat-raised-button color="primary" class="btn" [mat-dialog-close]="true">No</button>
+    </mat-dialog-actions>
+</ng-container>
+
+<!-- edit -->
+<ng-container *ngIf="typeOperation === 'edit'">
+    <mat-dialog-actions align="end">
+        <button mat-raised-button color="primary" class="btn" (click)="update( dataModel.resource, dataModel.id)" [mat-dialog-close]="true">Actualizar</button>
+        <button mat-raised-button color="primary" class="btn" [mat-dialog-close]="true">Cancelar</button>
+    </mat-dialog-actions>
+</ng-container>
+
+<!--show -->
+<ng-container *ngIf="typeOperation === 'show'">
+    <mat-dialog-actions align="end">
+        <button mat-raised-button color="primary" class="btn" [mat-dialog-close]="true">OK</button>
+    </mat-dialog-actions>
+</ng-container>
+
+<ng-container *ngIf="typeOperation == 'create'">
+    <mat-dialog-actions align="end">
+        <button mat-raised-button color="primary" class="btn" (click)="save()" [mat-dialog-close]="true">Agregar</button>
+        <button mat-raised-button color="primary" class="btn ml-2" [mat-dialog-close]="true">Cancelar</button>
+    </mat-dialog-actions>
+</ng-container>
+
+<ng-container *ngIf="typeOperation == 'association'">
+    <mat-dialog-actions align="end">
+        <button mat-raised-button color="primary" class="btn ml-2" (click)="saveAssociation(dataModel.id)" [mat-dialog-close]="true">Save Association</button>
+        <button mat-raised-button color="primary" class="btn ml-2" [mat-dialog-close]="true">Cancelar</button>
+    </mat-dialog-actions>
+</ng-container>

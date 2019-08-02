@@ -1,0 +1,29 @@
+<div *ngIf="filtersInfos && modelFilters" class="filters-simple-container mat-elevation-z8">
+
+    <div class="filters-zone">
+        <ng-container *ngFor="let filter of filtersInfos.filters">
+            <div class="filter-item">
+                <label class="label-field">{{filter.label}} </label>
+                <mat-form-field appearance="outline">
+                    <mat-select [(ngModel)]="modelFilters[filter['model']]" name="filters list" [multiple]="filter.type=='multiple'">
+                        <mat-option *ngFor="let dataFilter of filter.datas; let i = index" [value]="dataFilter.value" selected="">
+                            {{ dataFilter.label}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </ng-container>
+    </div>
+
+    <div class="actions-btn-zone">
+        <ng-container *ngFor="let btn of filtersInfos.buttonsAction">
+            <button class="actions-btn-item" mat-flat-button color="primary" (click)="clickActionBtn(btn.id)">
+                <div class="button-text">
+                    <i [class]="btn.icon" aria-hidden="true"></i>
+                    {{btn.label}}
+                </div> 
+            </button>
+        </ng-container>
+    </div>
+
+</div>

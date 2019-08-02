@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<mat-dialog-content>
+  <div class="selection">
+    <div *ngFor="let select of data.related" (click)="close()">
+      <a [routerLink]="['info', data.resource, data.id_resource, select.resource]">
+        <i class="fa fa-{{ select.icon }}"></i> {{ select.title }}
+      </a>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button color="primary" (click)="close()" cdkFocusInitial>Cancelar</button>
+</mat-dialog-actions>

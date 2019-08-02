@@ -1,0 +1,96 @@
+<mat-sidenav-container class="sidebar-container" autosize>
+
+    <!-- fxHide fxShow.gt-sm allow to display the sidebar only for computers screens and hide it on smartphone and tablet -->
+    <mat-sidenav fxHide fxShow.gt-sm #appSideNav select="[sidebar]" [ngClass]="sideBarClass" mode="side" [opened]="sidebarVisibility">
+
+        <!--Sidebar normal with icons and nav labels   -->
+        <ng-container *ngIf="sideBarClass==sideBarMax; else sidebarmin">
+            <ng-container *ngIf="NavHeader.imgPath; else navHeaderLabel ">
+                <section class="nav-header-img-container mat-elevation-z8">
+                    <img class="nav-header-img" [src]="NavHeader.imgPath">
+                </section>
+            </ng-container>
+
+            <ng-template #navHeaderLabel>
+                <section class="sidebar-item">
+                    <span>{{NavHeader.label}}</span>
+                </section>
+            </ng-template>
+
+            <div *ngFor="let nav of NavContent;" class="sidebar-item-container" [ngClass]="{'sidebar-item-selected': currentUrl==nav.url}">
+                <a routerLinkActive="active" [routerLink]="[nav.url]" class="sidebar-link">
+                    <section class="sidebar-item">
+                        <i *ngIf='nav.icon' class="{{ nav.icon }} sidebar-item-icon" [ngClass]="{'sidebar-selected': currentUrl==nav.url}"></i>
+                        <div class="sidebar-item-text" [ngClass]="{'sidebar-selected': currentUrl==nav.url}">
+                            {{ nav.keyRef | translate }}
+                        </div>
+                    </section>
+                </a>
+            </div>
+
+            <section class="sidebar-footer">
+                <button class="close-sidebar-btn" (click)="minimizeSideBar()"> <i class="fa fa-chevron-left "></i></button>
+            </section>
+        </ng-container>
+
+        <!--Sidebar minimized with only icons buttons to navigate   -->
+        <ng-template #sidebarmin>
+            <ng-container *ngIf="NavHeader.imgPath; else navHeaderLabel ">
+                <section class="nav-header-img-container mat-elevation-z8">
+                    <img class="nav-header-img-mini" [src]="NavHeader.imgMiniPath">
+                </section>
+            </ng-container>
+
+            <ng-template #navHeaderLabel>
+                <section class="sidebar-item">
+                    <span>
+                                <a 
+                                    href="https://www.youtube.com/watch?v=gy1B3agGNxw" 
+                                    class="sidebar-link">
+                                    {{NavHeader.label}}
+                                </a>
+                            </span>
+                </section>
+            </ng-template>
+
+            <div *ngFor="let nav of NavContent;" class="sidebar-item-container" [ngClass]="{'sidebar-item-selected': currentUrl==nav.url}">
+                <a routerLinkActive="active" [routerLink]="[nav.url]" class="sidebar-link">
+                    <section class="sidebar-item-minimize">
+                        <i *ngIf='nav.icon' class="{{ nav.icon }} sidebar-item-icon-minimize " [ngClass]="{'sidebar-selected': currentUrl==nav.url}"></i>
+                    </section>
+                </a>
+            </div>
+
+
+            <section class="sidebar-footer-minimize">
+                <button class="footer-btn-minimize" (click)="closeSideBar()"> 
+                            <i class="fa fa-chevron-left "></i>
+                </button>
+                <button class="footer-btn-minimize" (click)="maximizeSideBar()" ng> 
+                    <i class="fa fa-chevron-right"></i>
+                </button>
+            </section>
+
+        </ng-template>
+
+    </mat-sidenav>
+
+    <!-- Content -->
+    <mat-sidenav-content select="[main]" autosize>
+        <app-header [sidebarVisibility]="sidebarVisibility" [currentUrl]="currentUrl"> </app-header>
+
+
+        <!-- fxHide fxShow.gt-sm : https://github.com/angular/flex-layout/wiki/fxShow-API -->
+        <div fxHide fxShow.gt-sm class="open-sidebar-container">
+            <div class="open-sidebard-content">
+                <button *ngIf="!sidebarState" class="open-sidebar-btn" (click)="openSideBar()">
+                     <i class="fa fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <section class="router-outlet-content">
+            <router-outlet></router-outlet>
+        </section>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,87 @@
+<!-- <div class="content-info-items">
+    <div *ngFor='let data of datasCardBody; let i = index' class="info-items" >
+       
+        <ng-container *ngIf="label; else elseTemplate">
+            <div  class="w-25" >
+            {{label[i]}} 
+            </div>
+        </ng-container>
+
+        <ng-template #elseTemplate>
+            <div  class="w-25" >
+            {{keysCardBody[i] |  titlecase}} 
+            </div>
+        </ng-template>
+
+
+        <p  class="info-muted" *ngIf="data">
+            {{data}}
+        </p>
+        <p  class="info-muted" *ngIf="!data">
+                <span class="fa fa-ellipsis-h"></span>
+        </p>
+    </div>
+</div> -->
+<div class="content-info-items">
+        <div *ngFor='let dataCard of datasCardBody' >
+            <ng-container *ngIf="dataCard.label">
+                <div  class="w-50" >
+                    {{dataCard.label }}
+                </div>
+                
+                <!-- <ng-container *ngIf='isEmpty(dataCard.key); else noData'>
+
+                    <p  class="label-body">
+                        <ng-container *ngIf='isString(dataCard.key); else concatDatas'>
+
+                            <ng-container *ngIf='dataCard.type == "date"; else stringDisplay '>
+                                {{dataObject[dataCard.key] | date:'medium' }} 
+                            </ng-container>
+                            <ng-template #stringDisplay>
+                                    {{dataObject[dataCard.key]}}
+                            </ng-template>
+
+                        </ng-container>
+                            <ng-template #concatDatas>
+                                <ng-container *ngFor='let element of dataCard.key; let i = index'>
+                                        {{dataObject[dataCard.key[i]]}}
+                                </ng-container>
+                            </ng-template>
+                    </p>
+                </ng-container> -->
+                
+                <ng-container *ngIf='!isEmpty(dataCard.key,dataCard.type); else noData'>
+
+                    <p  class="label-body">
+                        <ng-container *ngIf='dataCard.type == "object";'>
+                                <ng-container *ngFor='let element of dataCard.key; let i = index'>
+                                     {{dataObject[dataCard.key[i]]}}
+                                </ng-container>
+                        </ng-container>
+
+                            <ng-container *ngIf='dataCard.type == "date" || dataCard.type == "datetime";'>
+                                {{dataObject[dataCard.key] | date:'medium' }} 
+                            </ng-container>
+
+                            <ng-container *ngIf='["string", "integer", "number", "decimal"].includes(dataCard.type);'>
+                                    {{dataObject[dataCard.key]}}
+                            </ng-container>
+
+                            <ng-container *ngIf='dataCard.type == "json";'>
+                                <button mat-raised-button (click)="viewDataSheet(dataObject[dataCard.key])"><i class="fa fa-eye"></i></button>
+                            </ng-container>
+                    </p>
+                </ng-container>
+                
+                <ng-template #noData>
+                    <p  class="label-body" *ngIf="!data">
+                        <span class="fa fa-ellipsis-h"></span>
+                    </p>
+                </ng-template>
+            </ng-container>
+        </div>
+</div>
+
+
+
+

@@ -1,0 +1,22 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+.cell-container {
+    @include flexbox;
+    @include justify-content(center);
+}
+.cell-item{
+
+    @include flexbox;
+    flex: 0 0 80%;
+    align-items: center;
+
+
+}
+
+.cell-icon {
+    color: $selection;
+}
+
+.cell-label {
+    margin: 0 4px;
+}

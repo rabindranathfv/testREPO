@@ -1,0 +1,66 @@
+<!-- <div *ngFor="let dot of markers">
+  {{dot | json}}
+</div> -->
+<!--
+  [streetViewControl]=false
+  [zoomControl]="false"
+  disableDefaultUI=true -->
+  <!-- {{center | json}} -->
+<agm-map *ngIf="center" [styles]="mapStyles"
+  [zoom]="zoom"
+  [latitude]="center.latitude"
+  [longitude]="center.longitude"
+  [streetViewControl]=false
+  [disableDefaultUI]=false
+  [zoomControl]=false
+  (mapClick)="onMap($event)"
+  [mapDraggable]="draggable">
+  <div *ngIf="markers">
+    <agm-marker *ngFor="let dot of markers"
+    [latitude]="dot.latitude"
+    [longitude]="dot.longitude"
+    [iconUrl]="dot.icon"
+    [label]="dot.label"
+    (markerClick)="onMarker(dot)"
+    openInfoWindow="true">
+    <!-- <agm-snazzy-info-window [maxWidth]="800" [closeWhenOthersOpen]="true"
+    fontColor="#000000">
+      <ng-template class="info-window">
+        <span style="display: inline;">
+          ID: {{dot.id}}
+        </span>
+      </ng-template>
+    </agm-snazzy-info-window> -->
+    </agm-marker>
+  </div>
+  <div *ngIf="path">
+    <!-- <agm-polygon
+    *ngIf="path"
+    [paths]="path"
+    [strokeWeight]="strokeWeight"
+    [fillColor]="fillColor"
+    [fillOpacity]="fillOpacity"></agm-polygon> -->
+    <agm-polygon
+    *ngFor="let area of path"
+    [strokeWeight]="strokeWeight"
+    [paths]="area.path"
+    [fillColor]="area.color"
+    [fillOpacity]="fillOpacity"> 
+      
+    </agm-polygon>
+  </div>
+
+</agm-map>
+
+
+<div *ngIf="path">
+  <!-- <agm-polygon
+  *ngIf="path"
+  [paths]="path"
+  [strokeWeight]="strokeWeight"
+  [fillColor]="fillColor"
+  [fillOpacity]="fillOpacity"></agm-polygon> -->
+  <!-- <div *ngFor="let area of path"> 
+    {{area|json}}
+  </div> -->
+</div>

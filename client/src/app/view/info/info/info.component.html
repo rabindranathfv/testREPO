@@ -1,0 +1,53 @@
+<section class="content-layout">
+    <ng-container *ngIf="dataSet">
+        <div id="mainContent" #mainContentRef class="main-content">
+            <app-header-title></app-header-title>
+            <section>
+                <div class="table-resource">
+                    <div class="info-card mat-elevation-z8">
+                        <div class="data">
+                            <h1>{{dataSet.short_id}}. {{dataSet.name}} {{dataSet.serie}}
+                                <mat-chip-list class="right">
+                                    <mat-chip><i class="fa fa-{{attributes[parentResource].icon}}"></i>&nbsp;{{attributes[parentResource].name}}</mat-chip>
+                                </mat-chip-list>
+                            </h1>
+                            <mat-divider></mat-divider>
+                            <div class="attributes">
+                                <div class="attribute" *ngFor="let attribute of datasCardBody">
+                                    <ng-container *ngIf="dataSet[attribute.name] != null ; else noData">
+                                        <h1>{{ attribute.label }}</h1>
+                                        <p>{{ dataSet[attribute.name] }}</p>
+                                    </ng-container>
+                                    <ng-template #noData>
+                                        <h1>{{ attribute.label }}</h1>
+                                        <p><i class="fa fa-ellipsis-h"></i></p>
+                                    </ng-template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-resource">
+                    <p>Related {{resource}}</p>
+                    <app-table-ag-grid class="info-card mat-elevation-z8" [rowData]="tableDataSet" [columnDefs]="columns"></app-table-ag-grid>
+                </div>
+                <ng-container *ngIf="log.length > 0">
+                    <div class="table-resource">
+                        <p>Actions performed</p>
+                        <div class="info-card mat-elevation-z8">
+                            <div class="actions" *ngFor="let actions of log; let i = index;">
+                                {{ i + 1 }}. {{ actions }}
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <div class="actions-info">
+                    <button mat-raised-button (click)="getBack()"><i class="fa fa-arrow-left"></i> Lista de {{attributes[resource].name}}</button>
+                    <button mat-raised-button color="primary" [disabled]="stepsCompleted" (click)="openModals('create')"><i class="fa fa-plus"></i> Create {{ resource }}</button>
+                    <button mat-raised-button (click)="continue()" [disabled]="continueDisabled"><i class="fa fa-arrow-right"></i> Continue</button>
+                    <button mat-raised-button color="danger" (click)="end()" [disabled]="stepsCompleted || log.length == 0"><i class="fa fa-ban"></i> Finish</button>
+                </div>
+            </section>
+        </div>
+    </ng-container>
+</section>

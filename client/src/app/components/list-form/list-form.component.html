@@ -1,0 +1,50 @@
+<!-- <mat-list> -->
+<div *ngFor="let input of inputs;">
+  <!-- <span >
+      {{input.title}}
+    </span> -->
+  <mat-form-field>
+    <input [type]="input.type" [disabled]="input.disabled" [placeholder]="input.title" (keyup)="updateModel(input)"
+      [hidden]="input.hidden" matInput [(ngModel)]="input.value">
+  </mat-form-field>
+</div>
+<!-- </mat-list> -->
+
+<!-- <span class="width-100">
+        <div *ngIf=" input.type !== 'checkbox' && input.type !== 'hidden' && input.type !== 'radio-button' && input.type !== 'option'">
+            <mat-form-field class="" >
+              <input [type]="input.type"
+              style="text-align: right"
+              [disabled]="input.disabled"
+              matInput
+              (keyup)="updateModel(index)"
+              (change)="updateModel(index)"
+              [(ngModel)]="inputs[index].model">
+            </mat-form-field>
+          </div>
+          <div *ngIf="input.type === 'radio-button'">
+            <mat-radio-button
+            (change)="updateModel(index)">
+            </mat-radio-button>
+          </div>
+          <div *ngIf="input.type === 'checkbox'">
+            <mat-checkbox style="float: right; margin-right: 2em;"
+            [(ngModel)]="inputs[index].model"
+            [disabled]="input.disabled"
+            (change)="updateModel(index)">
+              {{input.value}}
+            </mat-checkbox>
+          </div>
+          <div *ngIf="input.type === 'option'">
+            <mat-form-field>
+              <mat-select [placeholder]="inputs[index].placeholder" [(ngModel)]="inputs[index].model" name="inputs[index].title">
+                <mat-option *ngFor="let option of inputs[index].options"
+                [value]="option"
+                (click)="inputs[index].model=option">
+                  {{option}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <input (change)="updateModel(index)" [(ngModel)]="inputs[index].model" type="hidden" />
+        </span> -->

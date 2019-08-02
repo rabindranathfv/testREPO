@@ -1,0 +1,20 @@
+<!-- <button class="btn btn-ladda" data-style="expand-left"  ladda="ilsLoading">
+  Funciona
+</button> -->
+<!-- <button mat-flat-button color="primary" >Submit</button> -->
+<!-- <button mat-flat-button color="warn" >Submit</button>
+<button mat-flat-button isRoundButton="false" color="accent" >accent</button>
+<button class="btn" ladda>ladda</button> -->
+<button class="btn btn-block  btn-lg btn-block"
+style="width: 100%; height: 100%; display: flex; justify-content: center"
+[ngClass]="color"
+[style.width]="width"
+[style.height]="height"
+[disabled]="disabled"
+(click)="action()"
+[routerLink]="link"
+matRipple>
+  {{text}}
+  <ng-content></ng-content>
+</button>
+        <!-- <button [ladda]="isLoading">Save</button> -->

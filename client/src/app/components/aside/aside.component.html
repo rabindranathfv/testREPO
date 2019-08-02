@@ -1,0 +1,72 @@
+<mat-card>
+    <div class="headerContainer">
+
+        <div class="title-actions headerContent" #example>
+            <!-- <p class="lead">{{ objDetail.id }} {{ objDetail.typeData }}</p> -->
+            <p>Details</p>
+        </div>
+        <div class="title-actions">
+            <button *ngIf="confirmButton === true" class="btn-primary btn-outline-primary m-1" (click)="update(objDetail.typeData,objDetail.id)" mat-mini-fab class="m-1" color="primary" position="left" matTooltip="Edit info"><i class="fa fa-save" aria-hidden="false"></i></button>
+            <button mat-mini-fab class="m-1" color="primary" position="above" matTooltip="Help"><i class="fa fa-question m-1" aria-hidden="true"></i></button>
+            <button mat-mini-fab class="m-1" color="primary" position="right" matTooltip="Close info" appAsideMenuToggler><i class="fa fa-times m-1" aria-hidden="true"></i></button>
+        </div>
+    </div>
+    <mat-card>
+        <mat-tab-group (selectedTabChange)="tabChanged($event)">
+            <mat-tab label="DETAILS" class="tab-content">
+                <ng-template mat-tab-label>
+                    <i class="fa fa-info-circle" aria-hidden="true"> DETAILS</i>
+                </ng-template>
+                <!-- <app-aside-form  [id]="objDetail.id" [typeData]="objDetail.typeData" [dataModel]="objDetail"></app-aside-form> -->
+                <div class="mt-2">
+
+                    {{"Content"}}
+
+                </div>
+            </mat-tab>
+
+            <mat-tab label="EDIT">
+
+                <div class="flex-content">
+                    <mat-card>
+
+                        <ng-template mat-tab-label>
+                            <i class="fa fa-pencil" aria-hidden="true"> EDIT</i>
+                        </ng-template>
+                        <!-- Editando aqui -->
+                        <!-- <app-aside-form  [id]="objDetail.id" [typeData]="objDetail.typeData" [dataModel]="objDetail"></app-aside-form> -->
+
+                        <!-- <app-aside-table [tabIndex]="tabIndex" [id]="objDetail.id" [typeData]="objDetail.typeData" tab="create"></app-aside-table> -->
+                    </mat-card>
+                </div>
+            </mat-tab>
+
+            <!-- Exemple for special tables -->
+
+            <!-- <mat-tab  label="RELATIONS">
+                <div class="flex-content">
+                    <mat-card>
+                        <ng-template mat-tab-label>
+                            <i class="fa fa-user-plus" aria-hidden="true"> ASSOCIATE PLANT TO USER</i>
+                        </ng-template>
+
+                        <app-aside-table [tabIndex]="tabIndex" [id]="objDetail.id" [typeData]="objDetail.typeData" tab="attributes"></app-aside-table>
+                        <button mat-raised-button class="btn-primary btn-outline-primary m-1"><i class="fa fa-user-plus" aria-hidden="true"></i> Associate </button>
+                    </mat-card>
+                </div>
+            </mat-tab> -->
+
+            <!-- <mat-tab label="LATEST TELEMETRY">
+
+                <div class="flex-content">
+                    <mat-card>
+                        
+                        <app-aside-actions [id]="objDetail.id" [typeData]="objDetail.typeData" tab="telemetry"></app-aside-actions>
+                        <app-aside-table [tabIndex]="tabIndex" [id]="objDetail.id" [typeData]="objDetail.typeData" tab="telemetry"></app-aside-table>
+                    </mat-card>
+                </div>
+
+            </mat-tab> -->
+        </mat-tab-group>
+    </mat-card>
+</mat-card>

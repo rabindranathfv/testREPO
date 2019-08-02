@@ -1,0 +1,64 @@
+
+<section>
+  <!-- <mat-toolbar *ngIf="!toolbar">
+    <mat-toolbar-row>
+      title{{title}}
+      <ng-content select="[titulo]"> </ng-content>
+    </mat-toolbar-row>
+  </mat-toolbar> -->
+
+  <section class="flex-container fixed">
+      <!-- <div>
+        <span class="flex-weight-1" style="text-align: center">
+          <button color="accent"
+          style="padding-left: 1em;padding-right: 1em;"
+          mat-stroked-button [matMenuTriggerFor]="menu">
+            {{searchField}}
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item
+            (click)="searchField = cell"
+            *ngFor="let cell of camposDeBusqueda">
+              {{cell}}
+            </button>
+          </mat-menu> =
+          <mat-form-field>
+            <input matInput placeholder="Ingrese valor"
+            (input)="filterByValue($event.target.value)"
+            [(ngModel)]="searchValue"
+            [value]="idBusqueda">
+          </mat-form-field>
+        </span>
+      </div> -->
+      <span class="flex-weight-1" style="text-align: center; align-self: center">
+        <ng-content select="[rowButton]">
+        </ng-content>
+      </span>
+  
+    </section>
+<mat-table *ngIf="data && dataSource.data" #table [dataSource]="dataSource" matSort>
+  <ng-container [matColumnDef]="col" *ngFor="let col of columns;trackBy: trackFunction">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>
+      {{col}}
+    </mat-header-cell>
+    <mat-cell class="cell-col" (click)="emit(row, col, dataSource.data, $event)" *matCellDef="let row">
+      <app-drawer
+      [height]="row[col].height"
+      [width]="row[col].width"
+      [component]="row[col].component"
+      [params]="row[col].params"
+      [text]="row[col]">
+      </app-drawer>
+    </mat-cell>
+
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="columns" [class.sticky]="!noSticky">
+  </mat-header-row>
+
+  <mat-row *matRowDef="let row; columns: columns;" [class.stripped]="stripped">
+  </mat-row>
+</mat-table>
+<mat-paginator *ngIf="size" [pageSize]="size"> </mat-paginator>
+</section>
+<!-- <cdk-virtual-scroll-viewport autosize>
+</cdk-virtual-scroll-viewport> -->

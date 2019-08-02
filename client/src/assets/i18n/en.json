@@ -1,0 +1,109 @@
+{
+    "sidebar": {
+        "navHome": "Home",
+        "navCust": "Customers",
+        "navPlants": "Plants",
+        "navAssets": "Assets",
+        "navDevices": "Devices",
+        "navRuleChain": "Rule Chain",
+        "navEntityView": "Entity View",
+        "navWidgetLibrary": "Widget Library",
+        "navDashboardKpi": "Dashboard Kpi",
+        "navLogs": "Logs"
+    },
+    "accountMenu": {
+        "headerLabel": "Forcast Front Base",
+        "language": "Language",
+        "help": "Help",
+        "contact": "Contact",
+        "signOut": "Sign Out "
+    },
+    "base": {
+        "initialMessage": " Welcome in Front Base, a full Angular starting responsive project. Main components demos below.",
+        "translate": {
+            "title": "Traduction",
+            "lang": "English",
+            "mockText": "Hey I'm a text in english ( I didn't find the direct translation of th previous spanish text )"
+        }
+    },
+
+    "header": {
+        "title": "",
+        "text": ""
+    },
+
+    "layout": {
+        "navbar": {
+            "item1": "",
+            "item2": "",
+            "item3": ""
+        }
+    },
+
+    "loginModule": {
+        "input": {
+            "emailPlaceholder": "Email",
+            "pswPlaceholder": "password"
+        },
+        "labels": {
+            "userLabel": "Username",
+            "paswdLabel": "Password"
+        },
+        "btn": {
+            "btnValid": "Connexion",
+            "action": "log In"
+        },
+        "nav": {
+            "pswForgot": "Forgot your password ?",
+            "help": " Get Help"
+        },
+        "errorText": {
+            "errorMs": "Incorrect user or password."
+        },
+        "messageNotifiLogin": {
+            "loginSuccess": "User successfuly",
+            "loginFailure": "User incorrect, check your credentials"
+        }
+    },
+
+    "resetPswModule": {
+        "cardMailInput": {
+            "stepperTitle": "Fill out your Email",
+            "title": "Forgot Your Password ?",
+            "instructions": "Enter the email you're using for your account below and we'll send you a password reset link",
+            "mailPlacehold": "Mail address",
+            "btnResetLink": "Request Reset Link"
+        },
+        "cardCheckMail": {
+            "stepperTitle": "Check your Inbox",
+            "title": "Check your Inbox",
+            "instructions": "We have sent you an email with a reset link to the address you gave us, please check your inbox to continue and reset your password",
+            "btnResendMail": "Send Again Reset Mail",
+            "btnNavToLogin": "Go To Login"
+        }
+    },
+
+    "newPswModule": {
+        "title": "Reset Password",
+        "newPswPlaceholder": "New password",
+        "btnConfirm": "Validate"
+    },
+
+    "modal": {
+
+        "modalHeader": {
+            "create": "Create ",
+            "show": "Show ",
+            "delete": "Delete ",
+            "edit": "Edit",
+            "associate": "Associate ",
+            "dissociate": "Dissociate "
+        },
+        "modalFooter": {
+
+        },
+        "modalbody": {
+
+        }
+    }
+}

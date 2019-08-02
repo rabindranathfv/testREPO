@@ -1,0 +1,25 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+
+.active{
+    background: $primary;
+    color: $secondary;
+}
+
+.mat-tree-node{
+  min-height: 2em;
+  padding-left: 0%;
+}
+
+.mat-icon-button{
+  width: 2em;
+  height: 2em;
+}
+
+.mat-icon-button{
+  height: 40px;
+}
+
+.decoration-none:active{
+  text-decoration: none;
+}

@@ -1,0 +1,96 @@
+<!-- delete -->
+<ng-container *ngIf="typeOperation === 'delete'">
+    <div class="form-container">
+        <!-- {{ dataModel | json }} -->
+        <form>
+            <p>Cuidado, despues de esta confirmacion sera eliminado <strong> {{ dataModel.name | titlecase }} </strong></p>
+        </form>
+    </div>
+</ng-container>
+
+<!-- edit -->
+<ng-container *ngIf="typeOperation === 'edit'">
+    <div class="form-container">
+        <app-dynamic-form #dynForm [externalSubscriber]="globalForm" [resource]="resource" [fields]="regConfig" (submit)="submit($event)">
+        </app-dynamic-form>
+    </div>
+</ng-container>
+
+
+<!-- show -->
+<ng-container *ngIf="typeOperation === 'show'">
+    <div class="form-container">
+        <app-show-data [field]="regConfig">
+        </app-show-data>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="typeOperation === 'create'">
+    <mat-dialog-content>
+        <div class="form-container">
+            <app-dynamic-form #dynForm [resource]="resource" [fields]="regConfig" (submit)="submit($event)">
+            </app-dynamic-form>
+        </div>
+    </mat-dialog-content>
+</ng-container>
+
+<!-- Associate customer to a plant -->
+<ng-container *ngIf="typeOperation =='association' || typeOperation == 'dissociate'">
+    <div class="assoc-container">
+        <div class="infos-container">
+            Puedes <b>asociar</b> o <b>disociar</b> {{dataModel.resource | uppercase }} con los siguientes recursos:
+        </div>
+        <!--
+        <mat-form-field>
+            <mat-label>Recursos disponibles</mat-label>
+            <mat-select [(ngModel)]="selectedResource" (ngModelChange)="updateSelect($event)">
+                <mat-option disabled> - RECURSO -</mat-option>
+                <mat-option *ngFor="let data of resourcesList" [value]="data">
+                    {{ data | uppercase }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <ng-container *ngIf="selectedResource">
+            <mat-form-field>
+            <mat-label>Asociar con</mat-label>
+            <mat-select [(ngModel)]="selectedId" *ngIf="selectedResource" (ngModelChange)="updateSelectedId($event)">
+                <mat-option disabled> - ASOCIAR CON -</mat-option>
+                <mat-option *ngFor="let data of idsList" [value]="data.id">
+                     {{ data.id  }} - {{ data.name | uppercase }} {{ data.serie | uppercase }}
+                </mat-option>
+            </mat-select>
+            </mat-form-field>
+        </ng-container>
+        -->
+        <div class="form-container">
+            <app-dynamic-form #dynForm [externalSubscriber]="globalForm" [resource]="resource" [fields]="regConfig">
+            </app-dynamic-form>
+        </div>
+    </div>
+</ng-container>
+
+<!-- Disassociate -->
+<!-- <ng-container *ngIf="typeOperation === 'dissociate'">
+    <form>
+        <p>Cuidado, despues de esta confirmacion el usuario <strong> {{ dataModel.usuario_id }} </strong> sera desasociado </p>
+        <mat-card>
+            <div>
+                <div style="display:flex; justify-content: center;">
+                    <button mat-raised-button class="btn btn-primary" (click)="UsersDetails(dataModel.usuario_id)">Ver Detalles Usuario</button>
+                </div>
+                <mat-card-content *ngIf="dataDetails">
+                    <br>
+                    <div style="display: flex; justify-content: center;">
+                        <mat-form-field>
+                            <input matInput disabled placeholder="Nombre del Usuario" [value]="dataDetails.nombre">
+                        </mat-form-field>
+                        <mat-form-field *ngIf="dataDetails.mail">
+                            <input matInput disabled placeholder="Correo del Usuario" [value]="dataDetails.mail">
+                        </mat-form-field>
+                    </div>
+                </mat-card-content>
+            </div>
+        </mat-card>
+    </form>
+</ng-container> -->

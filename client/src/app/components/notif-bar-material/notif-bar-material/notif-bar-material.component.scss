@@ -1,0 +1,18 @@
+@import 'src/style/_mixins.scss';
+@import 'src/style/_variables.scss';
+
+.notif-container {
+    @include flexbox;
+    @include justify-content(space-around);
+    align-items: center;
+}
+
+.notif-message {
+    color: white;
+    font-weight: 500;
+}
+
+.notif-action {
+    color:grey;
+    font-weight: 400;
+}

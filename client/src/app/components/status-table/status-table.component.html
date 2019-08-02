@@ -1,0 +1,17 @@
+<table class="center-table" >
+  <tr>
+      <th style="width: 5%"></th>
+      <th>Monitorización</th>
+      <th style="text-align: center;">Estado</th>
+      <th style="width: 5%"></th>
+  </tr>
+  <tr *ngFor="let item of dataTableInput">
+      <td>&nbsp;</td>
+      <td>{{item.title}}</td>
+      <td>
+          <img class="active-icon" *ngIf="item.active" src="../../../../assets/icons/Asset 29-8.png" alt="">
+          <img class="active-icon" *ngIf="!item.active" src="../../../../assets/icons/Asset 28-8.png" alt="">
+      </td>
+      <td>&nbsp;</td>                                        
+  </tr>
+</table>

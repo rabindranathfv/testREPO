@@ -1,0 +1,35 @@
+    <ng-container *ngIf="displayType=='someDatas' || !datasChart; else elseEmptyResults">
+        <div class="cards-container">
+            <ng-container *ngFor="let chart of chartjsDatas;  let i = index" id="chart.id" >
+
+                    <div class="chart-card-item mat-elevation-z8"  sizeCard [zoom]='chart.growthFactor'  >
+                        <app-card-chart-title [title]='chart.title'></app-card-chart-title>
+
+                        <ng-container *ngIf="arrayTypeCharts[i]; else elseNoDatas">
+                            <div class="full-size"> 
+                                <section class="full-size" appAsideMenuToggler *ngIf="chart">
+                                    <app-card-chart-body [datasCharts]='chart'></app-card-chart-body>
+                                </section>
+                            </div>
+                        </ng-container>
+
+                        <ng-template #elseNoDatas>
+                            <div class="empty-chart-content">
+                                <img class="empty-chart-content-items" [src]="arrayImgPath[i]">
+                            </div>
+                            <div class="empty-chart-label">
+                                {{emptyLabel}}
+                            </div>
+                        </ng-template>
+                    </div>
+
+        </ng-container>
+
+        </div>
+    </ng-container>
+
+    <ng-template #elseEmptyResults>
+        <app-no-results></app-no-results>
+    </ng-template>
+
+    

@@ -1,0 +1,41 @@
+<section class="content-layout">
+
+    <ng-container *ngIf="dataSet; else elseTemplate">
+        <div id="mainContent" #mainContentRef class="main-content">
+            <app-header-title></app-header-title>
+
+            <section>
+                <app-card-searcher (inputData)="onSearch($event)" [searchButton]="true"></app-card-searcher>
+                <div class="cards-container ">
+                    <div class="card-item" *ngFor="let data of dataSet | cardSearch:searchFields:searchInput;let i = index" id="data.id">
+                        <div class="mat-elevation-z8" hover hoverClass='hover-directive'>
+                            <app-card-title [title]="data.nombre" [id]="data.id" [checkBox]="checkBoxCardTitle" [hasChild]="data.hasChild"></app-card-title>
+                            <section>
+                                <app-card-body [dataObject]='data' [datasCardBody]='datasCardBody'></app-card-body>
+                            </section>
+
+                            <mat-divider></mat-divider>
+
+                            <app-card-actions [resource]="resource" [id]="data.id" [dataObject]='data' [actionsBtn]='actionsBtn'></app-card-actions>
+
+                        </div>
+                    </div>
+                    <app-no-results-search *ngIf="(dataSet | cardSearch:searchFields:searchInput).length == 0" [searchText]="searchInput"></app-no-results-search>
+                </div>
+            </section>
+        </div>
+    </ng-container>
+
+
+    <ng-template #elseTemplate>
+        No hay datos que mostrar.
+    </ng-template>
+
+    <div class="btn-actions">
+        <button mat-fab color="primary" position="right" matTooltip="Agregar nuevas plantas" (click)="openModals('create')"><i class="fa fa-plus"></i></button>
+    </div>
+    <div class="btn-actions-back">
+        <button mat-fab color="primary" position="right" matTooltip="Regresar a plantas" (click)="getBack()"><i class="fa fa-arrow-left"></i></button>
+    </div>
+
+</section>

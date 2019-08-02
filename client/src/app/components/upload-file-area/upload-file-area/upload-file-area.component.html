@@ -1,0 +1,11 @@
+<div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+  <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+</div>
+<ng-container *ngFor="let file of files;let i= index">
+    <div  class="files-list" >
+        <div> {{ file }} </div>
+        <button class="delete-file" (click)="deleteAttachment(i)">
+          <mat-icon color="primary">close</mat-icon>
+       </button>
+     </div>
+</ng-container>

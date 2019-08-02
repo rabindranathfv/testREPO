@@ -1,0 +1,57 @@
+.indicator-image {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 0;
+  }
+  .spinner-1{
+    position: absolute;
+  }
+  .spinner-2{
+    position: relative;
+    margin: 10% 0;
+  }
+  
+  .indicator{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .left-separator{
+    border-color: lightgrey; 
+    border-width: 0 0.01em 0em 0em;
+    border-style: solid;
+  }
+  .indicator-text{
+    text-align: center;
+    font-weight: bold;
+    padding-top: 0.5em;
+    position: absolute;
+    font-size: 2em;
+  }
+
+  .indicator-text-custom{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+  }
+
+  .spinner-name{
+    padding-top: 1%;
+    font-weight: 500;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+  }
+
+  .center-align{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+  }

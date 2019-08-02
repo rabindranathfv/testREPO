@@ -1,0 +1,180 @@
+const fs = require('fs-extra');
+fs.writeFile('lista', '');
+const db = Object.keys(
+	{
+
+		"speed": "1584",
+		"pressure": "0.0",
+		"viscosity": "0.0",
+		"tank_ink_level": "51",
+		"solvent_added": "0",
+		"electronic_temperature": "38.3738",
+		"ink_temperature": "40",
+		"head_temperature": "43.5",
+		"ink_circuit_solenoid_valve_state": "0000000000000000",
+		"head_solenoid_valve_state": "0000010101101000",
+		"ink_task_phase": "0",
+		"ink_task_sub_phase": "2",
+		"tube_task_phase": "3",
+		"tube_task_sub_phase": "1",
+		"motor_task_phase": "0",
+		"jet_speed": "0.0",
+		"number_printing_phase": "6",
+		"viscosity_target": "236",
+		"offset_sensor_level": "400",
+		"beginning_measurement_time": "0",
+		"break_of_time": "0",
+		"current_tube_level": "59",
+		"piezo_target": "214",
+		"ckmax": "0",
+		"ckmin": "0",
+		"recup_level": "0",
+		"tht_target": "5190.0",
+		"priting_state": "0",
+		"total_additive_consumption": "95277",
+		"tank_additive_quantity": "2491",
+		"time_left_ink": "44804",
+		"viscosity_management_state": "0",
+		"average_ink_consumption": "0",
+		"pressure_target": "1139",
+		"speed_motor_target": "152",
+		"ink_autonomy_display": "7",
+		"additive_cartridge": "0",
+		"additive_pump_pressure": "26",
+		"ink_circuit_fault": "0000000000000000",
+		"print_head_faults": "0000000000000000",
+		"printing_faults": "0000000000000000",
+		"ink_circuit_warnings": "0000000000000000",
+		"print_head_warnings": "0000000000000000",
+		"printing_warnings": "0000000000000000",
+		"jet_status": "Jet stopped:Printing in pause",
+		"printing_counter_value": "64791628",
+		"number_of_records": "2",
+		"fault_number": "2030",
+		"time_date_notification_day_month_years_hours_minute": "26-12-18 12:58",
+		"phase_detection": "2",
+		"motor_speed": "1816",
+		"motor_speed_target": "180",
+		"pomp_pressure": "3",
+		"pomp_pressure_target": "1224",
+		"hardware_temperature": "33",
+		"number_faults_warnings": "2",
+		"list_faults_warnings": "5140",
+		"hub_id": 1,
+		"created_at": "2018-11-15T00:11:53.013Z",
+		"updated_at": "2018-11-15T00:11:53.013Z"
+	});
+const comandos = ['speed_motor_rpm',
+	'pressure',
+	'viscosity',
+	'tank_ink_level',
+	'solvent_added',
+	'electronic_temperature',
+	'ink_temperature',
+	'head_temperature',
+	'ink_circuit_solenoid_valve_state',
+	'head_solenoid_valve_state',
+	'ink_task_phase',
+	'ink_task_sub_phase',
+	'tube_task_phase',
+	'tube_task_sub_phase',
+	'motor_task_phase',
+	'jet_speed',
+	'number_printing_phase',
+	'solvent_added_',
+	'viscosity_target',
+	'offset_sensor_level',
+	'beginning_measurement_time',
+	'break_of_time',
+	'current_tube_level',
+	'piezo_target',
+	'ckmax',
+	'ckmin',
+	'recup_level',
+	'tht_target',
+	'priting_state',
+	'total_additive_consumption',
+	'tank_additive_quantity',
+	'time_left_ink',
+	'viscosity_management_state',
+	'average_ink_consumption',
+	'pressure_target',
+	'speed_motor_target',
+	'ink_autonomy_display',
+	'additive_cartridge',
+	'additive_pump_pressure',
+	'ink_circuit_fault',
+	'print_head_faults',
+	'printing_faults',
+	'ink_circuit_warnings',
+	'print_head_warnings',
+	'printing_warnings',
+	'jet_status',
+	'printing_counter_value',
+	'tag_type',
+	'version',
+	'batch_number',
+	'expiration_data',
+	'volume',
+	'ink_cartridge_reference_place',
+	'associated_additive_reference',
+	'plug_play_inks_1',
+	'plug_play_inks_2',
+	'plug_play_inks_3',
+	'plug_play_inks_4',
+	'plug_play_inks_5',
+	'additive_cartridge_reference_place',
+	'plug_play_additives_1',
+	'plug_play_additives_2',
+	'plug_play_additives_3',
+	'plug_play_additives_4',
+	'plug_play_additives_5',
+	'cartridge_type',
+	'tag_format',
+	'number_of_records',
+	'fault_number',
+	'time_date_notification_day_month_years_hours_minute',
+	'jet_speed_cf',
+	'phase_detection',
+	'head_temperature_cf',
+	'solvent_added_cf',
+	'motor_speed',
+	'motor_speed_target',
+	'pomp_pressure',
+	'pomp_pressure_target',
+	'tank_ink_level_cf',
+	'hardware_temperature',
+	'ink_temperature_cf',
+	'viscosity_cf',
+	'viscosity_target_cf',
+	'number_faults_warnings',
+	'list_faults_warnings',
+	'total_number_of_warnings_faults',
+	'warning_fault_number_for_item_{VARIABLE}']
+
+db.forEach(row => {
+	// console.log(row);
+	const coincidence = comandos.find(comando => row === comando);
+	// console.log(coincidence);
+	if (!coincidence) {
+		// console.log(row);
+	}
+
+})
+comandos.forEach(comando => {
+
+	const coincidence = db.find(row => comando === row);
+	// console.log(coincidence);
+	if (!coincidence) {
+		
+		console.log(comando);
+		try {
+			
+			fs.appendFile('lista', `${comando}\n`);
+		} catch (error) {
+			console.log(error);
+			
+		}
+	}
+
+});

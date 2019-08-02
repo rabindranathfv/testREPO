@@ -1,0 +1,94 @@
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+@import './style/variables';
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+$mat-primary: (
+    50 : lighten(desaturate($primary, 10.79), 52.55),
+    100 : lighten(desaturate(adjust-hue($primary, 1), 9.93), 41.76),
+    200 : lighten(desaturate($primary, 10.64), 29.80),
+    300 : lighten(desaturate(adjust-hue($primary, -1), 10.94), 17.84),
+    400 : lighten(desaturate($primary, 9.99), 9.02),
+    500 : $primary,
+    600 : darken(saturate($primary, 2.07), 2.94),
+    700 : darken(saturate(adjust-hue($primary, 2), 4.20), 6.67),
+    800 : darken(saturate(adjust-hue($primary, 3), 7.25), 10.20),
+    900 : darken(saturate(adjust-hue($primary, 3), 15.32), 16.86),    
+    A100 : lighten(saturate(adjust-hue($primary, 5), 66.99), 39.80),
+    A200 : lighten(saturate(adjust-hue($primary, 5), 66.99), 29.80),
+    A400 : lighten(saturate(adjust-hue($primary, 5), 66.99), 19.80),
+    A700 : lighten(saturate(adjust-hue($primary, 5), 66.99), 14.71),
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$mat-warn: (
+    50 : lighten(desaturate($secondary, 10.79), 52.55),
+    100 : lighten(desaturate(adjust-hue($secondary, 1), 9.93), 41.76),
+    200 : lighten(desaturate($secondary, 10.64), 29.80),
+    300 : lighten(desaturate(adjust-hue($secondary, -1), 10.94), 17.84),
+    400 : lighten(desaturate($secondary, 9.99), 9.02),
+    500 : $secondary,
+    600 : darken(saturate($secondary, 2.07), 2.94),
+    700 : darken(saturate(adjust-hue($secondary, 2), 4.20), 6.67),
+    800 : darken(saturate(adjust-hue($secondary, 3), 7.25), 10.20),
+    900 : darken(saturate(adjust-hue($secondary, 3), 15.32), 16.86),    
+    A100 : lighten(saturate(adjust-hue($secondary, 5), 66.99), 39.80),
+    A200 : lighten(saturate(adjust-hue($secondary, 5), 66.99), 29.80),
+    A400 : lighten(saturate(adjust-hue($secondary, 5), 66.99), 19.80),
+    A700 : lighten(saturate(adjust-hue($secondary, 5), 66.99), 14.71),
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+
+
+$front-base-primary: mat-palette($mat-primary);
+$front-base-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$front-base-warn: mat-palette($mat-warn);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$front-base-theme: mat-light-theme($front-base-primary, $front-base-accent, $front-base-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($front-base-theme);
